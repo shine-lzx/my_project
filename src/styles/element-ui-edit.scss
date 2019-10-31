@@ -1,0 +1,97 @@
+.el-dialog-scroll {
+  .el-dialog {
+    margin-top: 10vh !important;
+    height: 80vh;
+    margin-bottom: 10vh;
+  }
+  .el-dialog__header {
+    position: absolute;
+    height: 54px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+  .el-dialog__body {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    bottom: 71px;
+    overflow: auto;
+  }
+  .el-dialog__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+}
+.common_ae--dialog {
+  .el-dialog__body {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+
+.table_container {
+  overflow-x: auto;
+  width: 100%;
+  .el-table {
+    min-width: 1200px;
+  }
+}
+
+//角色权限选择的checkbox--label不显示
+.divContainerLeft {
+  .el-checkbox__input {
+    margin-bottom: 2px;
+    margin-right: 3px;
+  }
+  .el-checkbox__label {
+    display: none;
+  }
+}
+
+// 部门管理
+.depTreeWrap {
+  .custom-tree-node {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-right: 8px;
+  }
+  .el-tree-node__content {
+    padding: 20px 0;
+    border-bottom: 1px solid #ebeef5;
+  }
+}
+
+.local_small_input {
+  width: 180px;
+  font-size: 12px;
+  .el-input {
+    width: 180px;
+    font-size: 12px;
+  }
+  .el-input__inner {
+    line-height: 30px;
+    height: 30px;
+  }
+  .el-input__icon {
+    line-height: 30px;
+  }
+}
+
+.local_small_form {
+  .el-form-item__label {
+    font-size: 12px
+  }
+}
+
+.small-input-width {
+  width: 140px
+}
