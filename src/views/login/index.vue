@@ -11,8 +11,8 @@
       <div class="title-container">
         <h3 class="title">shine-lzx</h3>
       </div>
-      <el-form-item prop="userName">
-        <el-input v-model="loginForm.userName" placeholder="请输入用户名"></el-input>
+      <el-form-item prop="username">
+        <el-input v-model="loginForm.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
       <el-form-item prop="pass">
         <el-input type="password" v-model="loginForm.password" autocomplete="off" placeholder="请输入密码"></el-input>
@@ -53,7 +53,7 @@ export default {
     }
     return {
       loginForm: {
-        userName: 'admin',
+        username: 'admin',
         password: 'Bt123456'
       },
       loginRules: {
@@ -69,12 +69,12 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          // this.$store.dispatch('user/login', this.loginForm).then(() => {
-          //   this.$router.push({ path: this.redirect || '/' })
-          //   this.loading = false
-          // }).catch(() => {
-          //   this.loading = false
-          // })
+          this.$store.dispatch('user/login', this.loginForm).then(() => {
+            this.$router.push({ path: this.redirect || '/' })
+            this.loading = false
+          }).catch(() => {
+            this.loading = false
+          })
         } else {
           console.log('error submit!!')
           return false
