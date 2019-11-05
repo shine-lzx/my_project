@@ -3,6 +3,7 @@
     <div class="show_style">
       <div>{{numb}}</div>
       <div>{{str}}</div>
+      <el-button type="danger" @click="change">{{aPlus}}</el-button>
     </div>
     <div class="btn_style">
       <el-button @click="add">增加</el-button>
@@ -30,7 +31,8 @@ export default {
   },
   data () {
     return {
-      flag: true
+      flag: true,
+      a: 1
     }
   },
   methods: {
@@ -44,13 +46,25 @@ export default {
     },
     joint () {
       this.strNumb()
+    },
+    change () {
+      this.aPlus = 20
     }
   },
   computed: {
     ...mapState({
       numb: state => state.numb,
       str: state => state.str
-    })
+    }),
+    aPlus: {
+      get: function () {
+        return this.a + 9
+      },
+      set: function (v) {
+        console.log(v)
+        this.a = v - 10
+      }
+    }
   }
 }
 </script>
