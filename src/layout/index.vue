@@ -3,6 +3,7 @@
     <div class="show_style">
       <div>{{numb}}</div>
       <div>{{str}}</div>
+      <div>{{selfnew}}</div>
       <el-button type="danger" @click="change">{{aPlus}}</el-button>
     </div>
     <div class="btn_style">
@@ -32,7 +33,8 @@ export default {
   data () {
     return {
       flag: true,
-      a: 1
+      a: 1,
+      b: ''
     }
   },
   methods: {
@@ -63,6 +65,11 @@ export default {
       set: function (v) {
         console.log(v)
         this.a = v - 10
+      }
+    },
+    selfnew: {
+      get: function () {
+        return this.b + '123'
       }
     }
   }
