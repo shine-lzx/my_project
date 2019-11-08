@@ -15,3 +15,8 @@ export default new Vuex.Store({
   },
   plugins: [persistedPlugin] // vuex持久化
 })
+/**
+ * 另一种插件
+ * https://www.jianshu.com/p/c22861ec5f21
+ * vuex持久化 vuex-persistedstate
+ */

@@ -4,7 +4,7 @@ import { getToken } from '@/utils/auth'
 const state = {
   token: getToken(),
   name: '',
-  avater: ''
+  avater: '@/assets/a1.ico'
 }
 
 const mutations = {
