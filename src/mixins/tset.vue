@@ -1,4 +1,3 @@
-
 <script>
 import indexMixins from './index'
 export default {
