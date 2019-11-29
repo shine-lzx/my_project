@@ -1,9 +1,8 @@
-const ADD_NUM = 'ADD_NUM'
-const SUB_NUM = 'SUB_NUM'
-
+import * as mutationsTypes from '../mutations-type'
 const state = {
   numb: 0,
-  str: '这是字符串：'
+  str: '这是字符串：',
+  isShow: false
 }
 
 const getters = {
@@ -20,11 +19,14 @@ const getters = {
 }
 
 const mutations = {
-  [ADD_NUM]: (state, numb) => {
+  [mutationsTypes.ADD_NUM]: (state, numb) => {
     state.numb = state.numb + numb
   },
-  [SUB_NUM]: (state, numb) => {
+  [mutationsTypes.SUB_NUM]: (state, numb) => {
     state.numb = state.numb - numb
+  },
+  [mutationsTypes.CHANGE_STATUS]: (state, isShow) => {
+    state.isShow = !state.isShow
   }
 }
 
@@ -34,6 +36,9 @@ const actions = {
   },
   handleSub: ({ commit }, parameter) => {
     commit('SUB_NUM', parameter)
+  },
+  handleChange: ({ commit }, parameter) => { // TODO parameter为什么为undefined?
+    commit('CHANGE_STATUS', parameter)
   }
 }
 
