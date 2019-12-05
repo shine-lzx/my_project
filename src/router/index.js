@@ -79,6 +79,18 @@ const routes = [
     ]
   },
   {
+    path: '/showEcharts',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'showEcharts',
+        component: () => import('@/views/showEcharts/index'),
+        meta: { title: 'showEcharts', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
