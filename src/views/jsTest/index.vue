@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   name: 'js测试',
   data () {
@@ -10,6 +11,7 @@ export default {
   },
   created () {
     this.test()
+    this.testObj()
   },
   methods: {
     test () {
@@ -48,6 +50,20 @@ export default {
       // for (let i in obj) {
       //   console.log('obj', obj[i])
       // }
+    },
+    testObj () {
+      let arr = [0, 1, 2, 3, 4]
+      let obj = { value: '1' }
+      console.log(_.isEmpty(obj))
+      let users = [
+        { 'user': 'barney', 'age': 36, 'active': true },
+        { 'user': 'fred', 'age': 40, 'active': false }
+      ]
+      // let newData = _.filter(users, o => { return !o.active })
+      let newData = users.filter(item => item.age > 36)
+      let newArr = arr.find(item => item > 10)
+      console.log('newArr', newArr)
+      console.log(newData)
     }
   }
 }

@@ -67,6 +67,18 @@ const routes = [
     ]
   },
   {
+    path: '/showMap',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'showMap',
+        component: () => import('@/views/showMap/index'),
+        meta: { title: 'showMap', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',

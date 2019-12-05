@@ -8,7 +8,7 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "space-before-function-paren": 1, //配置函数前面加一个空格
-    "eol-last": 0
+    "eol-last": 0,
     // "no-alert": 0,//禁止使用alert confirm prompt
     // "no-array-constructor": 2,//禁止使用数组构造器
     // "no-bitwise": 0,//禁止使用按位运算符
@@ -116,7 +116,7 @@ module.exports = {
     // "block-scoped-var": 0,//块语句中使用var
     // "brace-style": [1, "1tbs"],//大括号风格
     // "callback-return": 1,//避免多次调用回调什么的
-    // "camelcase": 2,//强制驼峰法命名
+    "camelcase": 2,//强制驼峰法命名
     // "comma-dangle": [2, "never"],//对象字面量项尾不能有逗号
     // "comma-spacing": 0,//逗号前后的空格
     // "comma-style": [2, "last"],//逗号风格，换行时在行首还是行尾
