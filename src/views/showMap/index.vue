@@ -40,7 +40,7 @@ export default {
     initMap () {
       this.renderMap()
       this.loadPositionPicker()
-      this.setMapByBrowser()
+      // this.setMapByBrowser()
       // this.setMark()
     },
     renderMap () {
@@ -130,7 +130,7 @@ export default {
           showCover: false,
           autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
         })
-        console.log(cpoint)
+        console.log('cpoint', cpoint)
         that.placeSearch.searchNearBy('', cpoint, 200, function (
           status,
           result
