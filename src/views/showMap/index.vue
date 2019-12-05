@@ -40,6 +40,8 @@ export default {
     initMap () {
       this.renderMap()
       this.loadPositionPicker()
+      this.setMapByBrowser()
+      // this.setMark()
     },
     renderMap () {
       /* eslint-disable no-undef */
@@ -72,7 +74,95 @@ export default {
         // 开始选点
         positionPicker.start()
       })
+    },
+    setMapByBrowser () {
+      let that = this
+      this.map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom: 16,
+        scrollWheel: false
+      })
+      let map = this.map
+      // 获取定位
+      AMap.plugin('AMap.Geolocation', function () {
+        var geolocation = new AMap.Geolocation({
+          enableHighAccuracy: true,
+          timeout: 10000,
+          buttonPosition: 'RB',
+          buttonOffset: new AMap.Pixel(10, 20),
+          zoomToAccuracy: true
+        })
+        map.addControl(geolocation)
+        geolocation.getCurrentPosition(function (status, result) {
+          if (status === 'complete') {
+            that.onComplete(result)
+          } else {
+            that.onError(result)
+          }
+        })
+      })
+    },
+    onComplete (data) {
+      console.log('定位成功')
+      var str = []
+      str.push('定位结果：' + data.position)
+      str.push('定位类别：' + data.location_type)
+      if (data.accuracy) {
+        str.push('精度：' + data.accuracy + ' 米')
+      }
+      str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'))
+      console.log(str)
+      // 周边地址推荐
+      let cpoint = data.position
+      this.loadPlaceSearch(cpoint)
+    },
+    loadPlaceSearch (cpoint) {
+      let map = this.map
+      let city = this.cityName
+      let that = this
+      AMap.service(['AMap.PlaceSearch'], function () {
+        that.placeSearch = new AMap.PlaceSearch({
+          pageSize: 5,
+          pageIndex: 1,
+          city: city,
+          citylimit: true,
+          map: map,
+          showCover: false,
+          autoFitView: true // 是否自动调整地图视野使绘制的 Marker点都处于视口的可见范围
+        })
+        console.log(cpoint)
+        that.placeSearch.searchNearBy('', cpoint, 200, function (
+          status,
+          result
+        ) {
+          console.log(result)
+        })
+      })
     }
+    // setMark () {
+    //   let map = this.map
+    //   this.marker = new AMap.Marker({
+    //     // 绘制小车marker和路径
+    //     map: map,
+    //     position: [118.815693, 32.065587],
+    //     icon: 'https://webapi.amap.com/images/car.png',
+    //     offset: new AMap.Pixel(-26, -13),
+    //     autoRotation: true,
+    //     angle: -90
+    //   })
+    //   var passedPolyline = new AMap.Polyline({
+    //     map: map,
+    //     path: carLine2,
+    //     strokeColor: '#AF5',
+    //     strokeOpacity: 1,
+    //     strokeWeight: 6,
+    //     strokeStyle: 'solid'
+    //   })
+    //   this.marker.on('moving', function (e) {
+    //     passedPolyline.setPath(e.passedPath)
+    //   })
+    //   map.setFitView()
+    // }
   }
 }
 </script>
