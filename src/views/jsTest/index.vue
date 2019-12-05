@@ -43,9 +43,11 @@ export default {
         enumerable: true, // 是否可枚举
         writable: true // 是否可改变
       })
-      for (let i in obj) {
-        console.log('obj', obj[i])
-      }
+      let a = Object.getOwnPropertyNames(obj)
+      console.log(a)
+      // for (let i in obj) {
+      //   console.log('obj', obj[i])
+      // }
     }
   }
 }
