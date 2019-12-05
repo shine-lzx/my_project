@@ -55,6 +55,18 @@ const routes = [
     ]
   },
   {
+    path: '/jsTest',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'jsTest',
+        component: () => import('@/views/jsTest/index'),
+        meta: { title: 'jsTest', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
