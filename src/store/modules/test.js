@@ -37,7 +37,8 @@ const actions = {
   handleSub: ({ commit }, parameter) => {
     commit('SUB_NUM', parameter)
   },
-  handleChange: ({ commit }, parameter) => { // TODO parameter为什么为undefined?
+  handleChange: ({ commit }, parameter) => {
+    console.log('parameter:', parameter)
     commit('CHANGE_STATUS', parameter)
   }
 }

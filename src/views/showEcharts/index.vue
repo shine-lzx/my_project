@@ -26,7 +26,7 @@ export default {
     drawLine () {
       let myChart = echarts.init(document.getElementById('myChart'))
       myChart.setOption({
-        title: { text: '使用echarts' },
+        title: { text: 'echarts' },
         tooltip: {
           trigger: 'axis'
         },
