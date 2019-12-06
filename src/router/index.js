@@ -91,6 +91,18 @@ const routes = [
     ]
   },
   {
+    path: '/simulationServer',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'simulationServer',
+        component: () => import('@/views/simulationServer/index'),
+        meta: { title: 'simulationServer', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',

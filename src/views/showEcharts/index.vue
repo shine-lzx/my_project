@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/chart/bar'
@@ -13,31 +12,17 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/markPoint'
-import { login } from '@/api/login/index'
 export default {
   name: 'showEcharts',
   data () {
     return {}
   },
   created () {
-    this.loginAsync()
-    axios.post('/login').then(res => {
-      console.log(res)
-    }).catch(err => {
-      console.log(err)
-    })
   },
   mounted () {
     this.drawLine()
   },
   methods: {
-    async loginAsync () {
-      await login().then(res => {
-        console.log(res)
-      }).catch(err => {
-        console.log(err)
-      })
-    },
     drawLine () {
       let myChart = echarts.init(document.getElementById('myChart'))
       myChart.setOption({
