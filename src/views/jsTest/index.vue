@@ -1,16 +1,49 @@
 <template>
   <div>
-    <kbd>quit</kbd>
-    <div>quit</div>
+    <mySlot :List="books">
+      <template v-slot:title>
+        <span>
+          <i class="el-icon-notebook-2"></i>
+          {{title}}
+        </span>
+      </template>
+      <!-- <template v-slot:content>
+        <div>
+          <div v-for="(item, i) in books" :key="i">
+            <i :class="item.icon" :style="renderColor(item.color)"></i>
+            {{ item.name }}
+          </div>
+        </div>
+      </template>-->
+      <!--
+        作用域插槽允许我们将子组件的数据传给父组件
+       -->
+      <template v-slot:item="{ row }">
+        <i :class="row.icon" :style="renderColor(row.color)"></i>
+        {{ row.name }}
+      </template>
+    </mySlot>
   </div>
 </template>
 
 <script>
+import mySlot from './mySlot/index'
 import _ from 'lodash'
 export default {
   name: 'js测试',
+  components: {
+    mySlot
+  },
   data () {
-    return {}
+    return {
+      title: '书籍列表',
+      books: [
+        { name: 'Dom编程艺术', icon: 'el-icon-sunny', color: 'red' },
+        { name: '你不知道的Javascript', icon: 'el-icon-orange', color: 'blue' },
+        { name: 'CSS世界', icon: 'el-icon-potato-strips', color: 'pink' },
+        { name: 'HTML入门教程', icon: 'el-icon-lollipop', color: 'green' }
+      ]
+    }
   },
   created () {
     this.objectFreeze()
@@ -18,6 +51,9 @@ export default {
     // this.testObj()
   },
   methods: {
+    renderColor (color) {
+      return 'color:' + color
+    },
     test () {
       let obj = {
         name: '王炸',
