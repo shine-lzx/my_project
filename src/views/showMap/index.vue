@@ -1,23 +1,16 @@
 <template>
   <div class="container">
     <div>
-      <el-input
-        v-model="input"
-        placeholder="请输入内容"
-        @keyup.enter.native="contents"
-      ></el-input>
+      <el-input v-model="input" placeholder="请输入内容" @keyup.enter.native="contents"></el-input>
     </div>
     <div class="mapBox">
-      <div
-        id="container"
-        class="mapContainer"
-      ></div>
+      <div id="container" class="mapContainer"></div>
       <div class="mapInfo">
         <div>{{mapData}}</div>
         <!-- <div>{{mapData.nearestJunction}}</div>
         <div>{{mapData.nearestPOI}}</div>
         <div>{{mapData.nearestRoad}}</div>
-        <div>{{mapData.regeocode}}</div> -->
+        <div>{{mapData.regeocode}}</div>-->
       </div>
     </div>
   </div>

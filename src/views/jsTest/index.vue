@@ -1,5 +1,8 @@
 <template>
-  <div>123</div>
+  <div>
+    <kbd>quit</kbd>
+    <div>quit</div>
+  </div>
 </template>
 
 <script>
@@ -10,8 +13,9 @@ export default {
     return {}
   },
   created () {
-    this.test()
-    this.testObj()
+    this.objectFreeze()
+    // this.test()
+    // this.testObj()
   },
   methods: {
     test () {
@@ -64,6 +68,12 @@ export default {
       let newArr = arr.find(item => item > 10)
       console.log('newArr', newArr)
       console.log(newData)
+    },
+    objectFreeze () {
+      let obj = { name: 'sun', age: '18' }
+      // Object.freeze(obj) // 冻结对象
+      obj.name = 'shine'
+      console.log(obj) // vue.runtime.esm.js?2b0e:619 [Vue warn]: Error in created hook: "TypeError: Cannot assign to read only property 'name' of object '#<Object>'"
     }
   }
 }

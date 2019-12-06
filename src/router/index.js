@@ -103,6 +103,18 @@ const routes = [
     ]
   },
   {
+    path: '/threeMapShow',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'threeMapShow',
+        component: () => import('@/views/threeMapShow/index'),
+        meta: { title: 'threeMapShow', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
