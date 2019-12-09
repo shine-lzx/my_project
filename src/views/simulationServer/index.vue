@@ -1,11 +1,17 @@
 <template>
-  <div>Mock</div>
+  <div>
+    <div>Mock</div>
+    <el-button @click="myClick">myClick</el-button>
+    <el-button @click="cancelClick">cancelClick</el-button>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
+import _console from '../../mixins/_console'
 export default {
   name: 'simulationServer',
+  mixins: [_console],
   created () {
     axios.post('/datas').then(res => {
       console.log(res)
@@ -28,6 +34,12 @@ export default {
     },
     fun2 () {
       console.log(this.str)
+    },
+    myClick () {
+      this.setParms('你好')
+    },
+    cancelClick () {
+      this.cancel()
     }
   }
 }
