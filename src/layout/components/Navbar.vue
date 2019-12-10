@@ -3,11 +3,11 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img src="../../assets/logo.png" class="user-avatar">
+          <img src="../../assets/images/Live2D.png" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
+          <router-link to="/dashboard">
             <el-dropdown-item>
               Home
             </el-dropdown-item>
