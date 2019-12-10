@@ -1,10 +1,13 @@
 <template>
   <div class="app-wrapper">
+    <!-- 侧边栏 -->
     <sidebar class="sidebar-container" />
     <div class="main-container">
       <div class="fixed-header">
+        <!-- 头部 -->
         <navbar />
       </div>
+      <!-- 主题 -->
       <appMain />
     </div>
   </div>
