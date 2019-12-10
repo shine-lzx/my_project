@@ -52,6 +52,7 @@
   </div>
 </template>
 <script>
+import Worker from '../../utils/test.js'
 export default {
   data () {
     return {
@@ -66,6 +67,21 @@ export default {
         desc: ''
       }
     }
+  },
+  created () {
+    // Object.assign(Person.prototype, {
+    //   getName: function () {
+    //     return this.name
+    //   },
+    //   getAge: function () {
+    //     return this.age
+    //   }
+    // })
+    // let obj = new Person('laotie', 88)
+    // console.log(obj.say())
+    // console.log(obj.getAge())
+    let obj = new Worker('shine', 18, 'programmer')
+    console.log(obj.userInfo())
   },
   methods: {
     onSubmit () {
