@@ -115,6 +115,18 @@ const routes = [
     ]
   },
   {
+    path: '/showCssStyle',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'showCssStyle',
+        component: () => import('@/views/showCssStyle/index'),
+        meta: { title: 'showCssStyle', icon: 'example' }
+      }
+    ]
+  },
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
