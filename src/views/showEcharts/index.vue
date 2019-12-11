@@ -1,6 +1,8 @@
 <template>
   <div>
     <div id="myChart" class="echartsStyle"></div>
+    <div class="triangle"></div>
+    <div class="loading"></div>
   </div>
 </template>
 
@@ -76,6 +78,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../styles/mobileAndPcMixins.scss';
 .echartsStyle {
   width: 500px;
   height: 500px;
@@ -93,5 +96,11 @@ export default {
 .image-cover {
   object-fit: cover;
   object-position: right top;
+}
+.triangle {
+  @include triangle(20px, red, bottom)
+}
+.loading {
+  @include loading-half-circle(2em, #333)
 }
 </style>
