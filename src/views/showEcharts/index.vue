@@ -80,4 +80,18 @@ export default {
   width: 500px;
   height: 500px;
 }
+.image {
+  background: #34495e;
+  border: 1px solid #34495e;
+  width: 200px;
+  height: 200px;
+}
+.image-contain {
+  object-fit: contain;
+  object-position: center;
+}
+.image-cover {
+  object-fit: cover;
+  object-position: right top;
+}
 </style>
