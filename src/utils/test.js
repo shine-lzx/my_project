@@ -22,3 +22,21 @@ export default class Worker extends Person {
     return '姓名：' + this.name + '年龄：' + this.age + '工作:' + this.job
   }
 }
+// ------------------------------------------------------------------------------
+function readonly (target, key, descriptor) {
+  // 可以通过修改descriptor参数实现各种功能
+  descriptor.writable = false
+  return descriptor
+}
+
+class Desc {
+  @readonly
+  speak () {
+    return 'I am Person!'
+  }
+}
+
+const person = new Desc()
+person.speak = () => {
+  console.log('I am human')
+}

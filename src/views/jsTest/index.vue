@@ -17,7 +17,7 @@
       </template>-->
       <!--
         作用域插槽允许我们将子组件的数据传给父组件
-       -->
+      -->
       <template v-slot:item="{ row }">
         <i :class="row.icon" :style="renderColor(row.color)"></i>
         {{ row.name }}
@@ -28,6 +28,7 @@
 
 <script>
 import mySlot from './mySlot/index'
+// import { arrData } from './data.js'
 import _ from 'lodash'
 export default {
   name: 'js测试',
@@ -46,7 +47,9 @@ export default {
     }
   },
   created () {
-    this.objectFreeze()
+    console.log(this.dispose())
+    // console.log(this.theShortestWord())
+    // this.objectFreeze()
     // this.test()
     // this.testObj()
   },
@@ -110,6 +113,68 @@ export default {
       // Object.freeze(obj) // 冻结对象
       obj.name = 'shine'
       console.log(obj) // vue.runtime.esm.js?2b0e:619 [Vue warn]: Error in created hook: "TypeError: Cannot assign to read only property 'name' of object '#<Object>'"
+    },
+    arrTip () {
+      let nums = [0, 0, 1, 2]
+      let max = Math.max(...nums)
+      let i = nums.findIndex(v => v === max)
+      nums.splice(i, 1)
+      let str = nums.map(v => {
+        return max > (v * 2) ? 1 : -1
+      })
+      return str.every(v => v === 1) ? i : -1
+    },
+    theShortestWord () {
+      let licensePlate = '13 456TEs'
+      let words = ['looks', 'pest', 'stew', 'show']
+      let regValue = licensePlate.replace(/[^a-zA-Z]/g, '').toLowerCase()
+      let str = words.map(v => {
+        if (v.search(regValue) !== -1) {
+          return v
+        }
+      })
+      str = str.filter(v => v !== undefined)
+      str = str.map(v => {
+        return v
+      })
+      return str
+    },
+    arrSum () {
+      /*
+      total必需。初始值, 或者计算结束后的返回值。
+      currentValue必需。当前元素
+      currentIndex可选。当前元素的索引
+      arr可选。当前元素所属的数组对象。
+      */
+      // let K = 100
+      let A = [1, 2, 5, 9, 77, 22, 66]
+      return A.reduce((prev, curr, idx, arr) => {
+        return prev + curr
+      })
+    },
+    dispose () {
+      // let arr = [1, 2, 3, 4]
+      // return arr.reduce((prev, curr, idx, arr) => {
+      //   console.log('初始值, 或者计算结束后的返回值', prev)
+      //   console.log('当前元素', curr)
+      //   console.log('当前元素的索引', idx)
+      //   console.log('当前元素所属的数组对象', arr)
+      //   console.log('----------------------')
+      //   return prev + curr
+      // }, 5)
+      // let obj = {}
+      let person = [
+        { id: 0, name: '小明' },
+        { id: 1, name: '小张' },
+        { id: 2, name: '小李' },
+        { id: 3, name: '小孙' },
+        { id: 1, name: '小周' },
+        { id: 2, name: '小陈' }
+      ]
+      return person.reduce((cur, next) => {
+        // obj[next.id] ? '' : obj[next.id] = true && cur.push(next)
+        // return cur
+      }, []) // 设置cur默认类型为数组，并且初始值为空的数组
     }
   }
 }
