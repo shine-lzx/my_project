@@ -1,43 +1,79 @@
 <template>
-  <div>
-    <div class="container">
-      <div class="box">style0</div>
-      <div class="box">style1</div>
-      <div class="box">style2</div>
-      <div class="box">style3</div>
+  <div class="container">
+    <div class="btns">
+      <el-button type="primary" @click="ocean">ocean</el-button>
+      <el-button type="primary" @click="btn">btn</el-button>
+      <el-button type="primary" @click="dazzlingBtn">dazzlingBtn</el-button>
+      <el-button type="primary" @click="statusBtn">statusBtn</el-button>
+      <el-button type="primary" @click="loading">loading</el-button>
+      <el-button type="primary" @click="login">login</el-button>
     </div>
+    <ocean v-if="oceanFlag" />
+    <btn v-if="btnFlag" />
+    <dazzlingBtn v-if="dazzlingBtnFlag" />
+    <statusBtn v-if="statusBtnFlag" />
+    <loading v-if="loadingFlag" />
+    <login v-if="loginFlag" />
   </div>
 </template>
 
-<style lang="scss" scoped>
-// row: 默认值，水平从左到右
-// colunm:垂直从上到下
-// row-reverse:水平从右到左
-// column-reverse：垂直从下到上
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  .box {
-    margin-bottom: 10px;
-    flex: 1;
-    border: 1px solid #333;
+<script>
+import ocean from './pages/ocean'
+import btn from './pages/btn'
+import dazzlingBtn from './pages/dazzlingBtn'
+import statusBtn from './pages/statusBtn'
+import loading from './pages/loading'
+import login from './pages/login'
+export default {
+  components: {
+    ocean,
+    btn,
+    dazzlingBtn,
+    statusBtn,
+    loading,
+    login
+  },
+  data () {
+    return {
+      oceanFlag: false,
+      btnFlag: false,
+      dazzlingBtnFlag: false,
+      statusBtnFlag: false,
+      loadingFlag: false,
+      loginFlag: false
+    }
+  },
+  methods: {
+    ocean () {
+      this.oceanFlag = !this.oceanFlag
+    },
+    btn () {
+      this.btnFlag = !this.btnFlag
+    },
+    dazzlingBtn () {
+      this.dazzlingBtnFlag = !this.dazzlingBtnFlag
+    },
+    statusBtn () {
+      this.statusBtnFlag = !this.statusBtnFlag
+    },
+    loading () {
+      this.loadingFlag = !this.loadingFlag
+    },
+    login () {
+      this.loginFlag = !this.loginFlag
+    }
   }
 }
-.image {
-  background: #34495e;
-  border: 1px solid #34495e;
-  width: 200px;
-  height: 200px;
-}
-.image-contain {
-  object-fit: contain;
-  object-position: center;
-}
-.image-cover {
-  object-fit: cover;
-  object-position: right top;
+</script>
+
+<style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+.container {
+  position: relative;
+  .btns {
+    position: fixed;
+    right: 0;
+    z-index: 999;
+  }
 }
 </style>

@@ -1,0 +1,164 @@
+<template>
+  <div class="container">
+    <form class="login-form" action="javascript:void(0);">
+      <h1>Login</h1>
+      <div class="form-field">
+        <i class="fas fa-user"></i>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="form-field"
+          pattern="^[a-zA-Z0-9_-]{1,16}$"
+          placeholder=" "
+          required
+        />
+        <label for="username">Username</label>
+      </div>
+      <div class="form-field">
+        <i class="fas fa-lock"></i>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-field"
+          placeholder=" "
+          required
+        />
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" value="Login" class="btn">Login</button>
+    </form>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: Lato, sans-serif;
+  background: url('https://i.loli.net/2019/10/18/buDT4YS6zUMfHst.jpg') 0 / cover
+    fixed;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0.4px 0.6px rgba(0, 0, 0, 0.141),
+    0 1px 1.3px rgba(0, 0, 0, 0.202), 0 1.9px 2.5px rgba(0, 0, 0, 0.25),
+    0 3.4px 4.5px rgba(0, 0, 0, 0.298), 0 6.3px 8.4px rgba(0, 0, 0, 0.359),
+    0 15px 20px rgba(0, 0, 0, 0.5);
+
+  h1 {
+    margin: 0 0 0.3em 0;
+    padding: 12px 0;
+    font-size: 2.5em;
+  }
+
+  .form-field {
+    position: relative;
+    margin: 20px 0 8px 0;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    transition: 0.4s;
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #3498db;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: 0.4s ease;
+    }
+
+    &:focus-within::after {
+      transform: scaleX(1);
+    }
+
+    input {
+      padding-left: 10px;
+      color: white;
+      background: transparent;
+      border: none;
+      outline: none;
+
+      // label will float in 2 situations based on its sibling input:
+      // 1. input get focus
+      // 2. input has text filled
+      &:focus ~ label,
+      &:not(:placeholder-shown) ~ label {
+        transform: translateY(-24px) scale(0.75);
+      }
+
+      &:valid ~ label {
+        color: #3498db;
+      }
+
+      &:invalid ~ label {
+        color: #e74c3c;
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 32px;
+      top: 22px;
+      transform-origin: left;
+      transition: 0.4s;
+    }
+  }
+
+  .btn {
+    position: relative;
+    width: 100%;
+    padding: 6px 0;
+    margin: 36px 0 18px 0;
+    font-size: 1.2em;
+    color: white;
+    background: transparent;
+    border: 2px solid hsla(204, 70%, 53%, 1);
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.5s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        hsla(204, 70%, 53%, 0.5),
+        transparent
+      );
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px 10px hsla(204, 70%, 53%, 0.5);
+    }
+
+    &:hover::before {
+      transform: translateX(100%);
+    }
+  }
+}
+</style>
