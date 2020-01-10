@@ -80,13 +80,23 @@ export default {
 }
 
 .item {
-  padding: 2em;
+  // padding: 2em;
   margin-bottom: 2em;
   break-inside: avoid;
-  background: #ccc;
+  // background: #ccc;
   color: #fff;
   text-align: center;
   margin: 10px;
+  border: 1.5rem solid transparent;
+  border-image: url(http://www.imaoda.com/s/img/tpl/border1.png) 15% 5%;
+  filter: brightness(0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.item:hover {
+  transform: translate(0, -10%);
+  filter: brightness(1);
 }
 
 .item .content-lar {

@@ -8,14 +8,17 @@
       <el-button type="primary" @click="loading">loading</el-button>
       <el-button type="primary" @click="login">login</el-button>
     </div>
-    <ocean v-if="oceanFlag" />
-    <btn v-if="btnFlag" />
-    <dazzlingBtn v-if="dazzlingBtnFlag" />
-    <statusBtn v-if="statusBtnFlag" />
-    <loading v-if="loadingFlag" />
-    <login v-if="loginFlag" />
-    <flex v-if="false" />
-    <Pinterest />
+    <div class="comps">
+      <ocean v-if="oceanFlag" />
+      <btn v-if="btnFlag" />
+      <dazzlingBtn v-if="dazzlingBtnFlag" />
+      <statusBtn v-if="statusBtnFlag" />
+      <loading v-if="loadingFlag" />
+      <login v-if="loginFlag" />
+      <flex v-if="false" />
+      <Pinterest v-if="true" />
+      <balloon v-if="false" />
+    </div>
   </div>
 </template>
 
@@ -28,6 +31,7 @@ import loading from './pages/loading'
 import login from './pages/login'
 import flex from './pages/flex'
 import Pinterest from './pages/Pinterest'
+import balloon from './pages/balloon'
 export default {
   components: {
     ocean,
@@ -37,7 +41,8 @@ export default {
     loading,
     login,
     flex,
-    Pinterest
+    Pinterest,
+    balloon
   },
   data () {
     return {
@@ -76,6 +81,11 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Lato:300');
 .container {
   position: relative;
+  .comps {
+    background: url('../../assets/images/yz.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
   .btns {
     position: fixed;
     right: 0;
