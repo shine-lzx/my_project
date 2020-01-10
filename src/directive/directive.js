@@ -14,6 +14,14 @@ export default Vue => {
       el.focus()
     }
   })
+  // ios微信打开网页键盘弹起后页面上滑，导致弹框里的按钮响应区域错位
+  Vue.directive('blur', {
+    'bind' (el) {
+      el.addEventListener('click', function () {
+        window.scrollTo(0, 0)
+      })
+    }
+  })
 }
 /*
 // 第一个参数：指令名称

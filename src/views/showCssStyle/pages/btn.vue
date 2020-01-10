@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <button data-text="Start" class="btn btn-primary btn-ghost btn-border-stroke btn-text-float-up">
+    <button data-text="点击进入" class="btn btn-primary btn-ghost btn-border-stroke btn-text-float-up">
       <div class="btn-borders">
         <div class="border-top"></div>
         <div class="border-right"></div>
         <div class="border-bottom"></div>
         <div class="border-left"></div>
       </div>
-      <span class="btn-text">Start</span>
+      <span class="btn-text">了解详情</span>
     </button>
   </div>
 </template>
@@ -23,9 +23,11 @@
   --ease-out-duration: 0.65s;
   --ease-out-delay: var(--ease-in-duration);
   position: relative;
-  padding: 1rem 3rem;
+  width: 100px;
+  height: 36px;
+  // padding: 36px 100px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 20px;
   color: white;
   text-decoration: none;
   background-color: hsl(var(--hue), 100%, 41%);
@@ -46,9 +48,11 @@
   }
 
   &-ghost {
-    color: hsl(var(--hue), 100%, 41%);
+    // color: hsl(var(--hue), 100%, 41%);
+    color: hsl(0, 100%, 50%);
     background-color: transparent;
-    border-color: hsl(var(--hue), 100%, 41%);
+    // border-color: hsl(var(--hue), 100%, 41%);
+    border-color: hsl(0, 100%, 50%);
 
     &:hover {
       color: white;
@@ -56,7 +60,8 @@
   }
 
   &-border-stroke {
-    border-color: hsla(var(--hue), 100%, 41%, 0.35);
+    // border-color: hsla(var(--hue), 100%, 41%, 0.35);
+    border-color: hsla(0, 100%, 50%, 0.5);
 
     .btn-borders {
       position: absolute;
@@ -70,7 +75,8 @@
         top: 0;
         width: 100%;
         height: 1px;
-        background: hsl(var(--hue), 100%, 41%);
+        // background: hsl(var(--hue), 100%, 41%);
+        background: hsl(0, 100%, 50%);
         transform: scaleX(0);
         transform-origin: left;
       }
@@ -80,7 +86,8 @@
         right: 0;
         width: 1px;
         height: 100%;
-        background: hsl(var(--hue), 100%, 41%);
+        // background: hsl(var(--hue), 100%, 41%);
+        background: hsl(0, 100%, 50%);
         transform: scaleY(0);
         transform-origin: bottom;
       }
@@ -90,7 +97,8 @@
         bottom: 0;
         width: 100%;
         height: 1px;
-        background: hsl(var(--hue), 100%, 41%);
+        // background: hsl(var(--hue), 100%, 41%);
+        background: hsl(0, 100%, 50%);
         transform: scaleX(0);
         transform-origin: left;
       }
@@ -100,7 +108,8 @@
         left: 0;
         width: 1px;
         height: 100%;
-        background: hsl(var(--hue), 100%, 41%);
+        // background: hsl(var(--hue), 100%, 41%);
+        background: hsl(0, 100%, 50%);
         transform: scaleY(0);
         transform-origin: bottom;
       }
@@ -125,7 +134,8 @@
     }
 
     &:hover {
-      color: hsl(var(--hue), 100%, 41%);
+      // color: hsl(var(--hue), 100%, 41%);
+      color: hsl(0, 100%, 50%);
       background: transparent;
 
       .border-top,

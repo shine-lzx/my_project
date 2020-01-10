@@ -14,6 +14,8 @@
     <statusBtn v-if="statusBtnFlag" />
     <loading v-if="loadingFlag" />
     <login v-if="loginFlag" />
+    <flex v-if="false" />
+    <Pinterest />
   </div>
 </template>
 
@@ -24,6 +26,8 @@ import dazzlingBtn from './pages/dazzlingBtn'
 import statusBtn from './pages/statusBtn'
 import loading from './pages/loading'
 import login from './pages/login'
+import flex from './pages/flex'
+import Pinterest from './pages/Pinterest'
 export default {
   components: {
     ocean,
@@ -31,7 +35,9 @@ export default {
     dazzlingBtn,
     statusBtn,
     loading,
-    login
+    login,
+    flex,
+    Pinterest
   },
   data () {
     return {
