@@ -23,17 +23,28 @@
         {{ row.name }}
       </template>
     </mySlot>
+    <div>
+      <ECMAScript />
+    </div>
+    <div>
+      <el-button @click="handelClick">click</el-button>
+      <ul v-for="i in 5" :key="i" id="_ul">
+        <li>{{i}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 import mySlot from './mySlot/index'
+import ECMAScript from './ECMAScript/index'
 // import { arrData } from './data.js'
 import _ from 'lodash'
 export default {
   name: 'js测试',
   components: {
-    mySlot
+    mySlot,
+    ECMAScript
   },
   data () {
     return {
@@ -47,7 +58,10 @@ export default {
     }
   },
   created () {
-    console.log(this.dispose())
+    // this.arrForm()
+    // this.testPromise()
+    this.keyBoard()
+    // console.log(this.dispose())
     // console.log(this.theShortestWord())
     // this.objectFreeze()
     // this.test()
@@ -175,6 +189,44 @@ export default {
         // obj[next.id] ? '' : obj[next.id] = true && cur.push(next)
         // return cur
       }, []) // 设置cur默认类型为数组，并且初始值为空的数组
+    },
+    arrForm () {
+      let arrayLike = {
+        '0': 'a',
+        '1': 'b',
+        '2': 'c',
+        length: 3
+      }
+
+      let arr = Array.from(arrayLike) // ['a', 'b', 'c']
+      console.log(arr)
+    },
+    handelClick () {
+      let el = document.querySelector('#_ul')
+      let newEl = Array.from(el)
+      console.log('newEl', newEl)
+    },
+    testPromise () {
+      return new Promise(function (resolve, reject) {
+        // --------------------
+        setTimeout(function () {
+          let num = Math.random()
+          if (num > 0.5) {
+            resolve(num)
+          } else {
+            reject(num)
+          }
+        }, 1000)
+        // --------------------
+      }).then(res => {
+        console.log('成功', res)
+      }).catch(err => {
+        console.log('失败', err)
+      })
+    },
+    keyBoard () {
+      let a = [...Array(7).keys()].map(days => new Date(Date.now() - 86400000 * days))
+      console.log(a)
     }
   }
 }
