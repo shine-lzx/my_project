@@ -18,6 +18,7 @@
       <flex v-if="false" />
       <Pinterest v-if="true" />
       <balloon v-if="false" />
+      <timeShaft v-if="false" />
     </div>
   </div>
 </template>
@@ -32,6 +33,7 @@ import login from './pages/login'
 import flex from './pages/flex'
 import Pinterest from './pages/Pinterest'
 import balloon from './pages/balloon'
+import timeShaft from './pages/timeShaft'
 export default {
   components: {
     ocean,
@@ -42,7 +44,8 @@ export default {
     login,
     flex,
     Pinterest,
-    balloon
+    balloon,
+    timeShaft
   },
   data () {
     return {
