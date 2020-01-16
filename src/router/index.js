@@ -18,7 +18,8 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/login',
+    redirect: '/dashboard',
+    hidden: true,
     children: [
       {
         path: 'dashboard',
@@ -32,9 +33,13 @@ const routes = [
   {
     path: '/Myform',
     component: Layout,
+    meta: {
+      title: 'Myform',
+      icon: 'nested'
+    },
     children: [
       {
-        path: 'index',
+        path: 'Myform',
         name: 'Myform',
         component: () => import('@/views/Myform/index'),
         meta: { title: 'Myform', icon: 'form' }
@@ -45,9 +50,13 @@ const routes = [
   {
     path: '/MyFile',
     component: Layout,
+    meta: {
+      title: 'MyFile',
+      icon: 'nested'
+    },
     children: [
       {
-        path: 'index',
+        path: 'MyFile',
         name: 'MyFile',
         component: () => import('@/views/MyFile/index'),
         meta: { title: 'exampleFile', icon: 'example' }
@@ -57,9 +66,13 @@ const routes = [
   {
     path: '/jsTest',
     component: Layout,
+    meta: {
+      title: 'jsTest',
+      icon: 'nested'
+    },
     children: [
       {
-        path: 'index',
+        path: 'jsTest',
         name: 'jsTest',
         component: () => import('@/views/jsTest/index'),
         meta: { title: 'jsTest', icon: 'example' }
@@ -69,6 +82,10 @@ const routes = [
   {
     path: '/showMap',
     component: Layout,
+    meta: {
+      title: 'showMap',
+      icon: 'nested'
+    },
     children: [
       {
         path: 'index',
@@ -81,6 +98,10 @@ const routes = [
   {
     path: '/showEcharts',
     component: Layout,
+    meta: {
+      title: 'showEcharts',
+      icon: 'nested'
+    },
     children: [
       {
         path: 'index',
@@ -93,6 +114,10 @@ const routes = [
   {
     path: '/simulationServer',
     component: Layout,
+    meta: {
+      title: 'simulationServer',
+      icon: 'nested'
+    },
     children: [
       {
         path: 'index',
@@ -105,6 +130,10 @@ const routes = [
   {
     path: '/threeMapShow',
     component: Layout,
+    meta: {
+      title: 'threeMapShow',
+      icon: 'nested'
+    },
     children: [
       {
         path: 'index',
@@ -117,12 +146,32 @@ const routes = [
   {
     path: '/showCssStyle',
     component: Layout,
+    meta: {
+      title: 'showCssStyle',
+      icon: 'nested'
+    },
     children: [
       {
         path: 'index',
         name: 'showCssStyle',
         component: () => import('@/views/showCssStyle/index'),
         meta: { title: 'showCssStyle', icon: 'example' }
+      }
+    ]
+  },
+  {
+    path: '/sidebar',
+    component: Layout,
+    meta: {
+      title: 'sidebar',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'index',
+        name: 'sidebar',
+        component: () => import('@/views/sidebar/index'),
+        meta: { title: 'sidebar', icon: 'example' }
       }
     ]
   },
