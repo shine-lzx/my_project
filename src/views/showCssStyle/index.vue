@@ -16,9 +16,12 @@
       <loading v-if="loadingFlag" />
       <login v-if="loginFlag" />
       <flex v-if="false" />
-      <Pinterest v-if="true" />
+      <Pinterest v-if="false" />
       <balloon v-if="false" />
       <timeShaft v-if="false" />
+      <switchonoff v-if="false" />
+      <Box v-if="true" />
+      <Views v-if="false" />
     </div>
   </div>
 </template>
@@ -34,6 +37,9 @@ import flex from './pages/flex'
 import Pinterest from './pages/Pinterest'
 import balloon from './pages/balloon'
 import timeShaft from './pages/timeShaft'
+import switchonoff from './pages/switchonoff'
+import Box from './pages/Box'
+import Views from './pages/360Views'
 export default {
   components: {
     ocean,
@@ -45,7 +51,10 @@ export default {
     flex,
     Pinterest,
     balloon,
-    timeShaft
+    timeShaft,
+    switchonoff,
+    Box,
+    Views
   },
   data () {
     return {

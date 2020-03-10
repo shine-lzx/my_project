@@ -59,6 +59,9 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
+      const arr = ['56', new Date()]
+      const toLocaleString = arr.toLocaleString('en', { timeZone: 'UTC' })
+      console.log(toLocaleString)
       console.log('key, keyPath', key, keyPath)
     },
     handleClose (key, keyPath) {
