@@ -31,6 +31,23 @@ const routes = [
   },
 
   {
+    path: '/bigScreen',
+    component: Layout,
+    meta: {
+      title: 'bigScreen',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'bigScreen',
+        name: 'bigScreen',
+        component: () => import('@/views/bigScreen/index'),
+        meta: { title: 'bigScreen', icon: 'form' }
+      }
+    ]
+  },
+
+  {
     path: '/Myform',
     component: Layout,
     meta: {

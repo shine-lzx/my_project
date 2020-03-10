@@ -8,6 +8,9 @@ import '@/styles/index.scss' // global css
 import directive from './directive/directive'
 import '@/icons' // icon
 import '../mock/index'
+import dataV from '@jiaminghi/data-view'
+
+Vue.use(dataV)
 Vue.use(directive)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
