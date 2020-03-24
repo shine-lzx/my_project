@@ -32,23 +32,65 @@
         <li>{{i}}</li>
       </ul>
     </div>
+
+    <tabs @handelTabClick="handelTabClick" @scroll.native="(e)=> {scrollHandler(e)}">
+      <template v-slot:title>
+        <div>标题</div>
+      </template>
+      <template v-slot:contents>
+        <!-- @scroll.passive没效果？ -->
+        <div v-show="active === 0 ? true :false">
+          <h1>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
+            aliquid perspiciatis! Quisquam quo tenetur atque modi debitis
+            quas explicabo consequatur ipsam,
+            recusandae veritatis facilis aliquam
+            harum inventore sed molestias eveniet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
+            aliquid perspiciatis! Quisquam quo tenetur atque modi debitis
+            quas explicabo consequatur ipsam,
+            recusandae veritatis facilis aliquam
+            harum inventore sed molestias eveniet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti,
+            aliquid perspiciatis! Quisquam quo tenetur atque modi debitis
+            quas explicabo consequatur ipsam,
+            recusandae veritatis facilis aliquam
+            harum inventore sed molestias eveniet.
+          </h1>
+        </div>
+        <div v-show="active === 1 ? true :false">
+          <h1>1</h1>
+        </div>
+        <div v-show="active === 2 ? true :false">
+          <h1>2</h1>
+        </div>
+      </template>
+    </tabs>
   </div>
 </template>
 
 <script>
 import mySlot from './mySlot/index'
 import ECMAScript from './ECMAScript/index'
-// import { arrData } from './data.js'
+import PersonTwo from './decorator/index'
+import tabs from './components/_tabs'
 import _ from 'lodash'
 export default {
   name: 'js测试',
   components: {
     mySlot,
-    ECMAScript
+    ECMAScript,
+    tabs
   },
   data () {
     return {
+      scroll: '',
+      active: 0,
       title: '书籍列表',
+      tabList: [
+        { title: '能耗统计', id: 0 },
+        { title: '设备统计', id: 1 },
+        { title: '维修统计', id: 2 }],
       books: [
         { name: 'Dom编程艺术', icon: 'el-icon-sunny', color: 'red' },
         { name: '你不知道的Javascript', icon: 'el-icon-orange', color: 'blue' },
@@ -58,9 +100,13 @@ export default {
     }
   },
   created () {
+    // this.deepClone()
+    let a = new PersonTwo('shine-lzx', 25)
+    a.print()
+    console.log(a.isTestable)
     // this.arrForm()
     // this.testPromise()
-    this.keyBoard()
+    // this.keyBoard()
     // console.log(this.dispose())
     // console.log(this.theShortestWord())
     // this.objectFreeze()
@@ -68,6 +114,36 @@ export default {
     // this.testObj()
   },
   methods: {
+    scrollHandler (e) {
+      console.log(e)
+    },
+    handelTabClick (id) {
+      this.active = id
+      const lover = (target, prop, descriptor) => {
+        const newName = target.prototype
+        newName.speak = function () {
+          this.init('zzy', '女')
+        }
+      }
+      @lover
+      class Person {
+        constructor (name, age) {
+          this.init(name, age)
+        }
+        init (name, sex) {
+          this.name = name
+          this.sex = sex
+        }
+      }
+      let obj = new Person('shine', `男${id}`)
+      obj.speak()
+      console.log(obj)
+    },
+    deepClone () {
+      let obj = { a: '1', b: '2', c: '3' }
+      let newObj = _.pick(obj, ['a', 'c'])
+      console.log(newObj)
+    },
     renderColor (color) {
       return 'color:' + color
     },
