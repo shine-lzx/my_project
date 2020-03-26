@@ -115,7 +115,7 @@ export default {
   },
   methods: {
     scrollHandler (e) {
-      console.log(e)
+      // console.log(e)
     },
     handelTabClick (id) {
       this.active = id

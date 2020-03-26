@@ -13,13 +13,18 @@
       </el-form>
       <el-button type="primary" @click="enterClick">改变标题</el-button>
     </div>
+    <hua />
   </div>
 </template>
 
 <script>
+import hua from '@/components/huadong'
 import { createNamespacedHelpers } from 'vuex'
 const { mapState, mapMutations } = createNamespacedHelpers('vuexT')
 export default {
+  components: {
+    hua
+  },
   data () {
     return {
       form: {

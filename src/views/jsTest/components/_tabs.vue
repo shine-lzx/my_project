@@ -8,8 +8,12 @@
         @click="tabEvent(item.id)"
       >{{item.title}}</li>
     </ul>
-    <slot name="title"></slot>
-    <slot name="contents"></slot>
+    <div>
+      <slot name="title"></slot>
+    </div>
+    <div style="margin-top: 40px">
+      <slot name="contents"></slot>
+    </div>
   </div>
 </template>
 
@@ -43,9 +47,9 @@ export default {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   .tabUl {
-    position: relative;
+    position: fixed;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     li {
       cursor: pointer;
