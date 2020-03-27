@@ -6,6 +6,7 @@
 
 <script>
 import titleC from './components/componentOne'
+import * as fnParent from './fn.js'
 export default {
   components: {
     titleC
@@ -14,26 +15,16 @@ export default {
     return {}
   },
   created () {
-    this.myProxy()
+    this.cl()
   },
   mounted () {
     const comA = this.$refs.comA
-    console.log(comA.title) // Vue.js
-    comA._alert() // 弹窗
+    console.log(comA.title)
+    // comA._alert() // 弹窗
   },
   methods: {
-    myProxy () {
-      let target = {
-        x: 10,
-        y: 20
-      }
-
-      let hanler = {
-        get: (obj, prop) => 42
-      }
-
-      target = new Proxy(target, hanler)
-      console.log(target.x)
+    cl () {
+      console.log('----------------', fnParent.default)
     }
   }
 }
