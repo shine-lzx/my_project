@@ -1,16 +1,25 @@
 <template>
   <div class="_container">
-    <div class="content" @mousedown.stop.prevent="(e) => elementDown(e)"></div>
+    <titleC ref="comA" />
   </div>
 </template>
 
 <script>
+import titleC from './components/componentOne'
 export default {
+  components: {
+    titleC
+  },
   data () {
     return {}
   },
   created () {
     this.myProxy()
+  },
+  mounted () {
+    const comA = this.$refs.comA
+    console.log(comA.title) // Vue.js
+    comA._alert() // 弹窗
   },
   methods: {
     myProxy () {
@@ -25,22 +34,6 @@ export default {
 
       target = new Proxy(target, hanler)
       console.log(target.x)
-    },
-    elementDown (e) {
-      // let x = e.pageX - e.target.offsetWidth / 2
-      // let y = e.pageY - e.target.offsetHeight / 2
-      // e.target.style.left = `${x}px`
-      // e.target.style.top = `${y}px`
-      this.move(e)
-    },
-
-    move (e) {
-      e.target.addEventListener('mousemove', (e) => {
-        let x = e.pageX - e.target.offsetWidth / 2
-        let y = e.pageY - e.target.offsetHeight / 2
-        e.target.style.left = `${x}` < 500 ? `${x}px` : null
-        e.target.style.top = `${y}` < 500 ? `${y}px` : null
-      })
     }
   }
 }

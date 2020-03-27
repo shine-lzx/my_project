@@ -33,6 +33,7 @@ export default {
     }, // mousedoen 事件
     successFunction () {
       this.confirmSuccess = true
+      this.$emit('handlerSlide', true)
       this.confirmWords = '验证通过'
       if (window.addEventListener) {
         document.getElementsByTagName('html')[0].removeEventListener('mousemove', this.mouseMoveFn)
@@ -83,7 +84,7 @@ export default {
 }
 .handler {
   width: 40px;
-  height: 32px;
+  height: 34px;
   border: 1px solid #ccc;
   cursor: move;
 }

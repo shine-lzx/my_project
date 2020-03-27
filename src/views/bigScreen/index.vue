@@ -13,7 +13,9 @@
       </el-form>
       <el-button type="primary" @click="enterClick">改变标题</el-button>
     </div>
-    <hua />
+    <div class="huadong">
+      <hua @handlerSlide="handlerSlide" />
+    </div>
   </div>
 </template>
 
@@ -43,6 +45,9 @@ export default {
   },
   methods: {
     ...mapMutations({ 'handleTitle': 'CHANGE_TITLE_NAME' }),
+    handlerSlide (status) {
+      console.log('滑动验证', status)
+    },
     enterClick () {
       this.$refs.form.validate((valid) => {
         if (valid) {
@@ -83,5 +88,8 @@ export default {
   .formStyle {
     width: 400px;
   }
+}
+.huadong {
+  width: 300px;
 }
 </style>
